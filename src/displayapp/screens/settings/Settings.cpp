@@ -39,10 +39,10 @@ bool Settings::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
 
 std::unique_ptr<Screen> Settings::CreateScreen1() {
   std::array<Screens::List::Applications, 4> applications {{
-    {Symbols::sun, "Display", Apps::SettingDisplay},
-    {Symbols::eye, "Wake Up", Apps::SettingWakeUp},
-    {Symbols::clock, "Time format", Apps::SettingTimeFormat},
-    {Symbols::home, "Watch face", Apps::SettingWatchFace},
+    {Symbols::sun, "Obrazovka", Apps::SettingDisplay},
+    {Symbols::eye, "Probuzeni", Apps::SettingWakeUp},
+    {Symbols::clock, "Format casu", Apps::SettingTimeFormat},
+    {Symbols::home, "Cifernik", Apps::SettingWatchFace},
   }};
 
   return std::make_unique<Screens::List>(0, 4, app, settingsController, applications);
@@ -50,10 +50,10 @@ std::unique_ptr<Screen> Settings::CreateScreen1() {
 
 std::unique_ptr<Screen> Settings::CreateScreen2() {
   std::array<Screens::List::Applications, 4> applications {{
-    {Symbols::shoe, "Steps", Apps::SettingSteps},
-    {Symbols::clock, "Set date", Apps::SettingSetDate},
-    {Symbols::clock, "Set time", Apps::SettingSetTime},
-    {Symbols::batteryHalf, "Battery", Apps::BatteryInfo}}};
+    {Symbols::shoe, "Kroky", Apps::SettingSteps},
+    {Symbols::clock, "Nastaveni datumu", Apps::SettingSetDate},
+    {Symbols::clock, "Nastaveni casu", Apps::SettingSetTime},
+    {Symbols::batteryHalf, "Baterie", Apps::BatteryInfo}}};
 
   return std::make_unique<Screens::List>(1, 4, app, settingsController, applications);
 }
@@ -61,8 +61,8 @@ std::unique_ptr<Screen> Settings::CreateScreen2() {
 std::unique_ptr<Screen> Settings::CreateScreen3() {
 
   std::array<Screens::List::Applications, 4> applications {{
-    {Symbols::clock, "Chimes", Apps::SettingChimes},
-    {Symbols::tachometer, "Shake Calib.", Apps::SettingShakeThreshold},
+    {Symbols::clock, "Upominky", Apps::SettingChimes},
+    {Symbols::tachometer, "Kalibrace otr.", Apps::SettingShakeThreshold},
     {Symbols::check, "Firmware", Apps::FirmwareValidation},
     {Symbols::bluetooth, "Bluetooth", Apps::SettingBluetooth}
   }};
@@ -73,7 +73,7 @@ std::unique_ptr<Screen> Settings::CreateScreen3() {
 std::unique_ptr<Screen> Settings::CreateScreen4() {
 
   std::array<Screens::List::Applications, 4> applications {{
-    {Symbols::list, "About", Apps::SysInfo},
+    {Symbols::list, "O systemu", Apps::SysInfo},
     {Symbols::none, "None", Apps::None},
     {Symbols::none, "None", Apps::None},
     {Symbols::none, "None", Apps::None}

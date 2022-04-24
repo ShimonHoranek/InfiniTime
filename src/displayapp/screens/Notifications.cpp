@@ -34,8 +34,8 @@ Notifications::Notifications(DisplayApp* app,
                                                      motorController);
     validDisplay = true;
   } else {
-    currentItem = std::make_unique<NotificationItem>("Notification",
-                                                     "No notification to display",
+    currentItem = std::make_unique<NotificationItem>("Oznameni",
+                                                     "Zadne oznameni k zobrazeni",
                                                      0,
                                                      notification.category,
                                                      notificationManager.NbNotifications(),
@@ -199,7 +199,7 @@ Notifications::NotificationItem::NotificationItem(const char* title,
   lv_obj_t* alert_type = lv_label_create(lv_scr_act(), nullptr);
   lv_obj_set_style_local_text_color(alert_type, LV_LABEL_PART_MAIN, LV_STATE_DEFAULT, lv_color_hex(0x888888));
   if(title == nullptr) {
-    lv_label_set_text_static(alert_type, "Notification");
+    lv_label_set_text_static(alert_type, "OZnameni");
   } else {
     // copy title to label and replace newlines with spaces
     lv_label_set_text(alert_type, title);

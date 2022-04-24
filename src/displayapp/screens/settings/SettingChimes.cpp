@@ -30,7 +30,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
   lv_cont_set_layout(container1, LV_LAYOUT_COLUMN_LEFT);
 
   lv_obj_t* title = lv_label_create(lv_scr_act(), nullptr);
-  lv_label_set_text_static(title, "Chimes");
+  lv_label_set_text_static(title, "Upominky");
   lv_label_set_align(title, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(title, lv_scr_act(), LV_ALIGN_IN_TOP_MID, 10, 15);
 
@@ -42,7 +42,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
 
   optionsTotal = 0;
   cbOption[optionsTotal] = lv_checkbox_create(container1, nullptr);
-  lv_checkbox_set_text_static(cbOption[optionsTotal], " Off");
+  lv_checkbox_set_text_static(cbOption[optionsTotal], " Vypnuto");
   cbOption[optionsTotal]->user_data = this;
   lv_obj_set_event_cb(cbOption[optionsTotal], event_handler);
   SetRadioButtonStyle(cbOption[optionsTotal]);
@@ -52,7 +52,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
 
   optionsTotal++;
   cbOption[optionsTotal] = lv_checkbox_create(container1, nullptr);
-  lv_checkbox_set_text_static(cbOption[optionsTotal], " Every hour");
+  lv_checkbox_set_text_static(cbOption[optionsTotal], " Kazdou hodinu");
   cbOption[optionsTotal]->user_data = this;
   lv_obj_set_event_cb(cbOption[optionsTotal], event_handler);
   SetRadioButtonStyle(cbOption[optionsTotal]);
@@ -62,7 +62,7 @@ SettingChimes::SettingChimes(Pinetime::Applications::DisplayApp* app, Pinetime::
 
   optionsTotal++;
   cbOption[optionsTotal] = lv_checkbox_create(container1, nullptr);
-  lv_checkbox_set_text_static(cbOption[optionsTotal], " Every 30 mins");
+  lv_checkbox_set_text_static(cbOption[optionsTotal], " Kazdych 30 min");
   cbOption[optionsTotal]->user_data = this;
   lv_obj_set_event_cb(cbOption[optionsTotal], event_handler);
   SetRadioButtonStyle(cbOption[optionsTotal]);

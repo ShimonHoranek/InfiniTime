@@ -78,9 +78,9 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen1() {
   lv_label_set_recolor(label, true);
   lv_label_set_text_fmt(label,
                         "#FFFF00 InfiniTime#\n\n"
-                        "#444444 Version# %ld.%ld.%ld\n"
-                        "#444444 Short Ref# %s\n"
-                        "#444444 Build date#\n"
+                        "#444444 Verze# %ld.%ld.%ld\n"
+                        "#444444 Kratka Ref# %s\n"
+                        "#444444 Datum sestavy fw#\n"
                         "%s\n"
                         "%s\n\n"
                         "#444444 Bootloader# %s",
@@ -139,14 +139,14 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen2() {
   lv_obj_t* label = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label, true);
   lv_label_set_text_fmt(label,
-                        "#444444 Date# %02d/%02d/%04d\n"
-                        "#444444 Time# %02d:%02d:%02d\n"
-                        "#444444 Uptime#\n %02lud %02lu:%02lu:%02lu\n"
-                        "#444444 Battery# %d%%/%03imV\n"
-                        "#444444 Backlight# %s\n"
-                        "#444444 Last reset# %s\n"
-                        "#444444 Accel.# %s\n"
-                        "#444444 Touch.# %x.%x.%x\n",
+                        "#444444 Datum# %02d/%02d/%04d\n"
+                        "#444444 Cas# %02d:%02d:%02d\n"
+                        "#444444 Datum zapnuti#\n %02lud %02lu:%02lu:%02lu\n"
+                        "#444444 Baterie# %d%%/%03imV\n"
+                        "#444444 Jas# %s\n"
+                        "#444444 Posledni reset# %s\n"
+                        "#444444 Akcele..# %s\n"
+                        "#444444 Dotyk.# %x.%x.%x\n",
                         dateTimeController.Day(),
                         static_cast<uint8_t>(dateTimeController.Month()),
                         dateTimeController.Year(),
@@ -180,11 +180,11 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen3() {
                         "#444444 BLE MAC#\n"
                         " %02x:%02x:%02x:%02x:%02x:%02x"
                         "\n"
-                        "#444444 LVGL Memory#\n"
-                        " #444444 used# %d (%d%%)\n"
-                        " #444444 max used# %lu\n"
+                        "#444444 LVGL Pamet#\n"
+                        " #444444 pouzivano# %d (%d%%)\n"
+                        " #444444 max pouzito# %lu\n"
                         " #444444 frag# %d%%\n"
-                        " #444444 free# %d",
+                        " #444444 volno# %d",
                         bleAddr[5],
                         bleAddr[4],
                         bleAddr[3],
@@ -218,9 +218,9 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen4() {
   lv_table_set_col_width(infoTask, 0, 30);
   lv_table_set_cell_value(infoTask, 0, 1, "S"); // State
   lv_table_set_col_width(infoTask, 1, 30);
-  lv_table_set_cell_value(infoTask, 0, 2, "Task");
+  lv_table_set_cell_value(infoTask, 0, 2, "Uloha");
   lv_table_set_col_width(infoTask, 2, 80);
-  lv_table_set_cell_value(infoTask, 0, 3, "Free");
+  lv_table_set_cell_value(infoTask, 0, 3, "Volno");
   lv_table_set_col_width(infoTask, 3, 90);
 
   auto nb = uxTaskGetSystemState(tasksStatus, maxTaskCount, nullptr);
@@ -251,8 +251,9 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen4() {
     buffer[1] = '\0';
     lv_table_set_cell_value(infoTask, i + 1, 1, buffer);
     lv_table_set_cell_value(infoTask, i + 1, 2, tasksStatus[i].pcTaskName);
-    if (tasksStatus[i].usStackHighWaterMark < 20) {
-      sprintf(buffer, "%d low", tasksStatus[i].usStackHighWaterMark);
+    if (tasksStatus[i].usStack
+        WaterMark < 20) {
+      sprintf(buffer, "%d nizke", tasksStatus[i].usStackHighWaterMark);
     } else {
       sprintf(buffer, "%d", tasksStatus[i].usStackHighWaterMark);
     }
@@ -265,14 +266,19 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen5() {
   lv_obj_t* label = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label, true);
   lv_label_set_text_static(label,
-                           "Software Licensed\n"
-                           "under the terms of\n"
-                           "the GNU General\n"
+                           "Software Licencovan\n"
+                           "za podminek\n"
+                           "GNU General\n"
                            "Public License v3\n"
-                           "#444444 Source code#\n"
+                           "#444444 Zdorjivy kod#\n"
                            "#FFFF00 https://github.com/#\n"
                            "#FFFF00 InfiniTimeOrg/#\n"
-                           "#FFFF00 InfiniTime#");
+                           "#FFFF00 InfiniTime#\n
+                           "#444444 Cesky preklad#\n
+                           "#FFFF00 https://github.com/#\n
+                           "#FFFF00 ShimonHoranek/#\n
+                           "#FFFF00 InfiniTime#\n
+                           ");
   lv_label_set_align(label, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   return std::make_unique<Screens::Label>(4, 5, app, label);
