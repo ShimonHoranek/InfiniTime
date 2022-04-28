@@ -51,7 +51,7 @@ std::unique_ptr<Screen> Settings::CreateScreen1() {
 std::unique_ptr<Screen> Settings::CreateScreen2() {
   std::array<Screens::List::Applications, 4> applications {{
     {Symbols::shoe, "Kroky", Apps::SettingSteps},
-    {Symbols::clock, "Nastaveni datumu", Apps::SettingSetDate},
+    {Symbols::clock, "Nastaveni data", Apps::SettingSetDate},
     {Symbols::clock, "Nastaveni casu", Apps::SettingSetTime},
     {Symbols::batteryHalf, "Baterie", Apps::BatteryInfo}}};
 
