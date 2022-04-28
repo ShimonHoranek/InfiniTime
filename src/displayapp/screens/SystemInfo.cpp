@@ -43,7 +43,7 @@ SystemInfo::SystemInfo(Pinetime::Applications::DisplayApp* app,
     brightnessController {brightnessController},
     bleController {bleController},
     watchdog {watchdog},
-    motionController {motionController},
+    motionController {motionController},ommit
     touchPanel {touchPanel},
     screens {app,
              0,
@@ -269,7 +269,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen5() {
                            "za podminek\n"
                            "GNU General\n"
                            "Public License v3\n"
-                           "#444444 Zdorjivy kod#\n"
+                           "#444444 Zdorjovy kod#\n"
                            "#FFFF00 https://github.com/#\n"
                            "#FFFF00 InfiniTimeOrg/#\n"
                            "#FFFF00 InfiniTime#\n"
