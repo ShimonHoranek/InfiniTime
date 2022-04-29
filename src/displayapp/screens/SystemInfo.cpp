@@ -180,8 +180,8 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen3() {
                         "#444444 BLE MAC#\n"
                         " %02x:%02x:%02x:%02x:%02x:%02x"
                         "\n"
-                        "#444444 LVGL Pamet#\n"
-                        " #444444 pouzivano# %d (%d%%)\n"
+                        "#444444 LVGL#\n"
+                        " #444444 pouztio# %d (%d%%)\n"
                         " #444444 max pou.# %lu\n"
                         " #444444 frag# %d%%\n"
                         " #444444 volno# %d",
@@ -272,11 +272,12 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen5() {
                            "#444444 Zdorjovy kod#\n"
                            "#FFFF00 https://github.com/#\n"
                            "#FFFF00 InfiniTimeOrg/#\n"
-                           "#FFFF00 InfiniTime#\n");
+                           "#FFFF00 InfiniTime#");
   lv_label_set_align(label, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   return std::make_unique<Screens::Label>(4, 6, app, label);
 }
+
 std::unique_ptr<Screen> SystemInfo::CreateScreen6() {
   lv_obj_t* label = lv_label_create(lv_scr_act(), nullptr);
   lv_label_set_recolor(label, true);
@@ -284,9 +285,8 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen6() {
 			   "#444444 Cesky preklad#\n"
                            "#FFFF00 https://github.com/#\n"
                            "#FFFF00 ShimonHoranek/#\n"
-                           "#FFFF00 InfiniTime#\n");
+                           "#FFFF00 InfiniTime#");
   lv_label_set_align(label, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   return std::make_unique<Screens::Label>(5, 6, app, label);
 }
-
