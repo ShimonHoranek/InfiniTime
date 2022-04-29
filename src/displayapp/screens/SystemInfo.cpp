@@ -272,7 +272,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen5() {
                            "#444444 Zdorjovy kod#\n"
                            "#FFFF00 https://github.com/#\n"
                            "#FFFF00 InfiniTimeOrg/#\n"
-                           "#FFFF00 InfiniTime#\n"
+                           "#FFFF00 InfiniTime#\n");
   lv_label_set_align(label, LV_LABEL_ALIGN_CENTER);
   lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   return std::make_unique<Screens::Label>(4, 6, app, label);
