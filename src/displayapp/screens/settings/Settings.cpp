@@ -39,7 +39,7 @@ bool Settings::OnTouchEvent(Pinetime::Applications::TouchEvents event) {
 
 std::unique_ptr<Screen> Settings::CreateScreen1() {
   std::array<Screens::List::Applications, 4> applications {{
-    {Symbols::sun, "Obrazovka", Apps::SettingDisplay},
+    {Symbols::sun, "Displej", Apps::SettingDisplay},
     {Symbols::eye, "Probuzeni", Apps::SettingWakeUp},
     {Symbols::clock, "Format casu", Apps::SettingTimeFormat},
     {Symbols::home, "Cifernik", Apps::SettingWatchFace},
@@ -51,8 +51,8 @@ std::unique_ptr<Screen> Settings::CreateScreen1() {
 std::unique_ptr<Screen> Settings::CreateScreen2() {
   std::array<Screens::List::Applications, 4> applications {{
     {Symbols::shoe, "Kroky", Apps::SettingSteps},
-    {Symbols::clock, "Nastaveni data", Apps::SettingSetDate},
-    {Symbols::clock, "Nastaveni casu", Apps::SettingSetTime},
+    {Symbols::clock, "Datum", Apps::SettingSetDate},
+    {Symbols::clock, "Cas", Apps::SettingSetTime},
     {Symbols::batteryHalf, "Baterie", Apps::BatteryInfo}}};
 
   return std::make_unique<Screens::List>(1, 4, app, settingsController, applications);
@@ -62,7 +62,7 @@ std::unique_ptr<Screen> Settings::CreateScreen3() {
 
   std::array<Screens::List::Applications, 4> applications {{
     {Symbols::clock, "Upominky", Apps::SettingChimes},
-    {Symbols::tachometer, "Kalibrace otr.", Apps::SettingShakeThreshold},
+    {Symbols::tachometer, "Kalibrace", Apps::SettingShakeThreshold},
     {Symbols::check, "Firmware", Apps::FirmwareValidation},
     {Symbols::bluetooth, "Bluetooth", Apps::SettingBluetooth}
   }};
