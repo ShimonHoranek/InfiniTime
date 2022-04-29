@@ -182,7 +182,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen3() {
                         "\n"
                         "#444444 LVGL Pamet#\n"
                         " #444444 pouzivano# %d (%d%%)\n"
-                        " #444444 max pouzito# %lu\n"
+                        " #444444 max pou.# %lu\n"
                         " #444444 frag# %d%%\n"
                         " #444444 volno# %d",
                         bleAddr[5],
