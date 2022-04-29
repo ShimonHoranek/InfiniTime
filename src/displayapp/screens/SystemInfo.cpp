@@ -79,7 +79,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen1() {
   lv_label_set_text_fmt(label,
                         "#FFFF00 InfiniTime#\n\n"
                         "#444444 Verze# %ld.%ld.%ld\n"
-                        "#444444 Kratka Ref# %s\n"
+                        "#444444 Krátká Ref# %s\n"
                         "#444444 Datum sestavy fw#\n"
                         "%s\n"
                         "%s\n\n"
@@ -140,12 +140,12 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen2() {
   lv_label_set_recolor(label, true);
   lv_label_set_text_fmt(label,
                         "#444444 Datum# %02d/%02d/%04d\n"
-                        "#444444 Cas# %02d:%02d:%02d\n"
-                        "#444444 Datum zapnuti#\n %02lud %02lu:%02lu:%02lu\n"
+                        "#444444 Čas# %02d:%02d:%02d\n"
+                        "#444444 Datum zapnutí#\n %02lud %02lu:%02lu:%02lu\n"
                         "#444444 Baterie# %d%%/%03imV\n"
                         "#444444 Jas# %s\n"
                         "#444444 Posledni reset# %s\n"
-                        "#444444 Akcele..# %s\n"
+                        "#444444 Akcele.# %s\n"
                         "#444444 Dotyk.# %x.%x.%x\n",
                         dateTimeController.Day(),
                         static_cast<uint8_t>(dateTimeController.Month()),
@@ -180,7 +180,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen3() {
                         "#444444 BLE MAC#\n"
                         " %02x:%02x:%02x:%02x:%02x:%02x"
                         "\n"
-                        "#444444 LVGL Pamet#\n"
+                        "#444444 LVGL Pamět#\n"
                         " #444444 pouzivano# %d (%d%%)\n"
                         " #444444 max pouzito# %lu\n"
                         " #444444 frag# %d%%\n"
@@ -218,7 +218,7 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen4() {
   lv_table_set_col_width(infoTask, 0, 30);
   lv_table_set_cell_value(infoTask, 0, 1, "S"); // State
   lv_table_set_col_width(infoTask, 1, 30);
-  lv_table_set_cell_value(infoTask, 0, 2, "Uloha");
+  lv_table_set_cell_value(infoTask, 0, 2, "Úloha");
   lv_table_set_col_width(infoTask, 2, 80);
   lv_table_set_cell_value(infoTask, 0, 3, "Volno");
   lv_table_set_col_width(infoTask, 3, 90);
@@ -281,3 +281,16 @@ std::unique_ptr<Screen> SystemInfo::CreateScreen5() {
   lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
   return std::make_unique<Screens::Label>(4, 5, app, label);
 }
+std::unique_ptr<Screen> SystemInfo::CreateScreen6() {
+  lv_obj_t* label = lv_label_create(lv_scr_act(), nullptr);
+  lv_label_set_recolor(label, true);
+  lv_label_set_text_static(label,
+			   "#444444 Cesky preklad#\n"
+                           "#FFFF00 https://github.com/#\n"
+                           "#FFFF00 ShimonHoranek/#\n"
+                           "#FFFF00 InfiniTime#\n");
+  lv_label_set_align(label, LV_LABEL_ALIGN_CENTER);
+  lv_obj_align(label, lv_scr_act(), LV_ALIGN_CENTER, 0, 0);
+  return std::make_unique<Screens::Label>(4, 5, app, label);
+}
+
